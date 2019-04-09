@@ -53,10 +53,7 @@ class BasicArray
     # without reverse
     # new_array = []
     # index = -1
-    # input_array.length.times do
-    #   new_array << input_array[index]
-    #   index -= 1
-    # end
+    # input_array.length.times { new_array << input_array[index] && index -= 1 }
     # new_array
   end
 
@@ -71,7 +68,7 @@ class BasicArray
     end
     new_array
   end
-  
+
 end 
 
 

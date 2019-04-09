@@ -4,55 +4,51 @@ class BasicString
 
   def reverse_string(input_string)
     input_string.reverse
-    # Return the reverse of a given string.
+
+    # without reverse
+    # reversed = []
+    # split_array = input_string.split('')
+    # input_string.length.times { reversed << split_array.pop }
+    # reversed.join
   end
 
   def show_me_the_money(input_string)
     input_string.include?('$')
-    # Given a string, return true if the “$” character is contained within the string or false if it is not.
+
+    # without include
+    # input_string.length.times.with_index { |index| return true if input_string[index] == '$' }
+    # return false
   end
 
   def alternate_capitals(input_string)
-    index = 0
-    input_string.length.times do
-      input_string[index] = input_string[index].upcase if index.odd?
-      index += 1
-    end
+    input_string.length.times.with_index { |index| input_string[index] = input_string[index].upcase if index.odd? }
     input_string
-    # Given a string, return a copy of the original string that has every other character capitalized. (Capitalization should begin with the second character.)
   end
 
   def find_duplicate_character(input_string)
-    index = 0
-    input_string.length.times do
-      return input_string[index] if input_string[index] == input_string[index + 1]
-      index += 1
-    end
-    # Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
+    input_string.length.times.with_index { |index| return input_string[index] if input_string[index] == input_string[index + 1] }
   end
 
   def reverse_words(input_string)
     input_string = input_string.split(' ')
     new_array = []
     index = -1
-    input_string.each do |word|
-      new_array << input_string[index]
-      index -= 1
-    end
+    input_string.each { |word| new_array << input_string[index] && index -= 1 }
     new_array.join(' ')
-
-    # input_string.join(' ')
-    # Given a string of words, return a new string that contains the words in reverse order.
   end
 
   def palindrome(input_string)
     input_string == input_string.reverse
 
-    # Given a string, return true if it is a palindrome, and false if it is not. (A palindrome is a word that reads the same both forward and backward.)
+    # without reverse
+    # reversed = []
+    # split_array = input_string.split('')
+    # input_string.length.times { reversed << split_array.pop }
+    # input_string == reversed.join
   end
 
   def hamming(input_string1, input_string2)
-    # Given two strings of equal length, return the number of characters that are different between the two strings.
+    (input_string1.chars - input_string2.chars).length
   end
 
 end
