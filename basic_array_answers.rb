@@ -60,12 +60,7 @@ class BasicArray
   def skip_it(input_array)
     new_array = []
     pick_it = 0
-    input_array.each.with_index do |number, index|
-      if pick_it == index
-        new_array << number
-        pick_it = (index + number)
-      end
-    end
+    input_array.each.with_index { |number, index| new_array << number && pick_it = (index + number) if pick_it == index }
     new_array
   end
 
