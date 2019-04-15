@@ -41,7 +41,7 @@ end
 
 RSpec.describe BasicArray do
 
-  algorithm = BasicArray.new
+  let(:algorithm) { BasicArray.new }
   
   describe '#reduce_sum' do
     it 'should return 10 when given [1,2,3,4]' do

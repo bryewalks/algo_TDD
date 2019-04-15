@@ -50,12 +50,7 @@ class BasicHash
   end
 
   def longest_non_duplicate_substring(input_string)
-    string_array = []
-    for i in 0..input_string.length - 1 do
-      for j in i..input_string.length - 1 do
-        input_string[i..j]
-      end
-    end
+
 
     # Given a string, return the length of the longest substring that does not contain duplicate characters.
 
@@ -76,7 +71,7 @@ end
 
 RSpec.describe BasicHash do
   
-  algorithm = BasicHash.new
+  let(:algorithm) { BasicHash.new }
 
   describe "#most_frequent_letter" do
     it "should return 'p' when given 'peter piper picked a peck of pickled peppers' " do

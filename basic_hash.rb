@@ -66,7 +66,7 @@ end
 
 RSpec.describe BasicHash do
   
-  algorithm = BasicHash.new
+  let(:algorithm) { BasicHash.new }
 
   describe "#most_frequent_letter" do
     it "should return 'p' when given 'peter piper picked a peck of pickled peppers' " do

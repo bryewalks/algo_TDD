@@ -55,7 +55,7 @@ end
 
 RSpec.describe BasicString do
   
-  algorithm = BasicString.new
+  let(:algorithm) { BasicString.new }  
 
   describe "#reverse_string" do
     it "should return 'edcba' when given 'abcde' " do
