@@ -50,21 +50,17 @@ class BasicHash
   end
 
   def longest_non_duplicate_substring(input_string)
+    max_substring = input_string[0]
+    start = 0
+    finish = 0
 
+    while finish < input_string.length
+      input_string[start..finish].each_char { |char| start += 1 if input_string[start..finish].count(char) > 1 }
+      max_substring = input_string[start..finish] if input_string[start..finish].length > max_substring.length
+      finish += 1
+    end
 
-    # Given a string, return the length of the longest substring that does not contain duplicate characters.
-
-    # Input: "yyuiumcecy"
-    # Output: 5
-    # This is because the longest substring (without duplicate characters) of the input string is "iumce", which has a length of 5.
-
-    # Input: "abcabcbb"
-    # Output: 3
-    # This is because the longest substring (without duplicate characters) of the input string is "abc", (it's tied with "bca" or "cab") - which has a length is 3.
-
-    # Input: "ddddd"
-    # Output: 1
-    # The longest substring is "d", with the length of 1.
+    max_substring.length
   end
 
 end
@@ -129,6 +125,10 @@ RSpec.describe BasicHash do
     it "should return 1 when given 'ddddd' " do
       expect(algorithm.longest_non_duplicate_substring('ddddd')).to eq(1)
     end
+
+    it "should return 1 when given 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefghijklmnopqrstuvwxyz' " do
+      expect(algorithm.longest_non_duplicate_substring('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefghijklmnopqrstuvwxyz')).to eq(26)
+    end 
   end
 
 end

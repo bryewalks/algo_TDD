@@ -6,19 +6,6 @@ class BasicNumber
   end
 
   def fizzbuzz(input_number)
-    index = 1
-    input_number.times do
-      if index % 15 == 0
-        p 'FIZZBUZZ'
-      elsif index % 5 == 0
-        p 'BUZZ'
-      elsif index % 3 == 0
-        p 'FIZZ'
-      else
-        p index
-      end
-      index += 1
-    end
     #Write a function that prints out every number from 1 to N, with the following exceptions:
     #If the number is divisible by 3, print out "FIZZ".
     #If the number is divisible by 5, print out "BUZZ".
@@ -117,12 +104,9 @@ class BasicNumber
   end
 end
 
-algo = BasicNumber.new
-algo.fizzbuzz(30)
-
 RSpec.describe BasicNumber do
-  
-  let(:algorithm) { BasicNumber.new }
+
+  let(:algorithm) { BasicNumber.new }  
 
   describe "#primes" do
     it "should return true when given 2 " do
@@ -148,11 +132,107 @@ RSpec.describe BasicNumber do
     it "should return false when given 200 " do
       expect(algorithm.primes(200)).to eq(false)
     end
+
+    it "should return true when given 541 " do
+      expect(algorithm.primes(541)).to eq(true)
+    end
+
+    it "should return false when given 542 " do
+      expect(algorithm.primes(542)).to eq(false)
+    end
   end
 
-  describe "#fizzbuzz" do
-    it "should count to input number and print 'FIZZ' when number is divisible by 3, 'BUZZ' when number is divisible by 5, and 'FIZZBUZZ' when number is divisible by both 3 and 5" do
-      expect(algorithm.fizzbuzz(30)).to output(1)
+  describe "#leap_year" do
+    it "should return true when given 10 " do
+      expect(algorithm.leap_year(1996)).to eq(true)
+    end
+
+    it "should return true when given 2000 " do
+      expect(algorithm.leap_year(2000)).to eq(true)
+    end
+
+    it "should return false when given 12 " do
+      expect(algorithm.leap_year(1900)).to eq(false)
+    end
+
+    it "should return false when given 3 " do
+      expect(algorithm.leap_year(1997)).to eq(false)
+    end
+  end
+
+  describe "#fibonacci" do
+    it "should return 3 when given 4 " do
+      expect(algorithm.fibonacci(4)).to eq(3)
+    end
+
+    it "should return 0 when given 0 " do
+      expect(algorithm.fibonacci(0)).to eq(0)
+    end
+
+    it "should return 144 when given 12 " do
+      expect(algorithm.fibonacci(12)).to eq(144)
+    end
+
+    it "should return 8944394323791464 when given 78 " do
+      expect(algorithm.fibonacci(78)).to eq(8944394323791464)
+    end
+  end
+
+  describe "#roman_numerals_to_integer" do
+    it "should return 3 when given 'III' " do
+      expect(algorithm.roman_numerals_to_integer("III")).to eq(3)
+    end
+
+    it "should return 4 when given 'IV' " do
+      expect(algorithm.roman_numerals_to_integer("IV")).to eq(4)
+    end
+
+    it "should return 9 when given 'IX' " do
+      expect(algorithm.roman_numerals_to_integer("IX")).to eq(9)
+    end
+
+    it "should return 58 when given 'LVIII' " do
+      expect(algorithm.roman_numerals_to_integer("LVIII")).to eq(58)
+    end
+
+    it "should return 1994 when given 'MCMXCIV' " do
+      expect(algorithm.roman_numerals_to_integer("MCMXCIV")).to eq(1994)
+    end
+  end
+
+  describe "#multiples_of_3_and_5" do
+    it "should return 23 when given 10 " do
+      expect(algorithm.multiples_of_3_and_5(10)).to eq(23)
+    end
+
+    it "should return 78 when given 20 " do
+      expect(algorithm.multiples_of_3_and_5(20)).to eq(78)
+    end
+
+    it "should return 9168 when given 12 " do
+      expect(algorithm.multiples_of_3_and_5(200)).to eq(9168)
+    end
+
+    it "should return 0 when given 3 " do
+      expect(algorithm.multiples_of_3_and_5(3)).to eq(0)
+    end
+  end
+
+  describe "#collatz_conjecture" do
+    it "should return 3 when given 4 " do
+      expect(algorithm.collatz_conjecture(12)).to eq(9)
+    end
+
+    it "should return 0 when given 0 " do
+      expect(algorithm.collatz_conjecture(6)).to eq(8)
+    end
+
+    it "should return 144 when given 12 " do
+      expect(algorithm.collatz_conjecture(25)).to eq(23)
+    end
+
+    it "should return 8944394323791464 when given 78 " do
+      expect(algorithm.collatz_conjecture(231)).to eq(127)
     end
   end
 

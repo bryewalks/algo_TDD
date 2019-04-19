@@ -40,7 +40,7 @@ end
 
 
 RSpec.describe BasicArray do
-
+  
   let(:algorithm) { BasicArray.new }
   
   describe '#reduce_sum' do
