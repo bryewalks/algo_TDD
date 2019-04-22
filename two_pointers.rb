@@ -170,6 +170,10 @@ RSpec.describe TwoPointers do
     it "should return 'f' when given 'The quick brown box jumps over a lazy dog' " do
       expect(algorithm.missing_letter("The quick brown box jumps over a lazy dog")).to eq("f")
     end
+
+    it "should return 'b' when given 'Pack my fox with five dozen liquor jugs' " do
+      expect(algorithm.missing_letter("Pack my fox with five dozen liquor jugs")).to eq("b")
+    end
   end
 
   describe "#merge_arrays" do

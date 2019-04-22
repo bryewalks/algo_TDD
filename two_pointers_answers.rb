@@ -11,36 +11,47 @@ class TwoPointers
       end
       return number if count == 2
     end
-    #A given array has one pair of duplicate values. Return the duplicate value.
-    #Input: [5, 2, 9, 7, 2, 6]
-    #Output: 2
+
   end
 
   def array_intersection(input_array1, input_array2)
-    # Given two arrays, return a new array that contains the intersection of the two arrays. The intersection means the values that are contained in both of the arrays.
-
-    # Input: [1, 2, 3, 4, 5], [1, 3, 5, 7, 9]
-    # Output: [1, 3, 5]
+    intersect_array = []
+    input_array1.each do |number|
+      input_array2.each do |number2|
+        intersect_array << number if number == number2
+      end
+    end
+    intersect_array
   end
 
   def array_subset(input_array1, input_array2)
-    # Given two arrays, determine whether one is a subset of the other. It is considered a subset if all the values in one array are contained within the other.
-
-    # Input: [1, 2, 3, 4, 5, 6], [6, 3, 2]
-    # Output: true
-
-    # Input: [1, 2, 3, 4, 5, 6], [6, 3, 7]
-    # Output: false
+    counter = 0
+    input_array1.each do |number|
+      input_array2.each do |number2|
+        counter += 1 if number == number2
+      end
+    end
+    counter == input_array2.length
   end
 
   def missing_letter(input_string)
-    # A given string contains all the letters from the alphabet except for one. Return the missing letter.
 
-    # Input: “The quick brown box jumps over a lazy dog”
-    # Output: “f”
+    # missing_letter = ''
+    alphabet_hash = {}
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    alphabet.chars.each { |letter| alphabet_hash[letter] = 0 }
+    input_string.chars.each { |letter| alphabet_hash[letter.downcase] += 1 if alphabet_hash[letter.downcase] }
+    # alphabet_hash.each { |key,value| missing_letter = key if value == 0 }
+
+    # missing_letter
+    alphabet_hash.key(0)
+
   end
 
   def merge_arrays(input_array1, input_array2)
+    
+
     # Given two sorted arrays, merge the second array into the first array while ensuring that the first array remains sorted. Do not use any built-in sort methods.
 
     # Input :
@@ -128,9 +139,20 @@ class TwoPointers
   end
 
   def largest_palindrome_product
-    # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
-
-    # Find the largest palindrome made from the product of two 3-digit numbers.
+    number_1 = 999
+    palindrome = 0
+    while number_1 >= 100
+      number_2 = 999
+      while number_2 >= 100
+        product = number_1 * number_2
+        if product.to_s == product.to_s.reverse && product > palindrome
+          palindrome = product
+        end
+        number_2 -= 1
+      end
+      number_1 -=1
+    end
+    palindrome
   end
   
 end
@@ -177,6 +199,10 @@ RSpec.describe TwoPointers do
   describe "#missing_letter" do
     it "should return 'f' when given 'The quick brown box jumps over a lazy dog' " do
       expect(algorithm.missing_letter("The quick brown box jumps over a lazy dog")).to eq("f")
+    end
+
+    it "should return 'b' when given 'Pack my fox with five dozen liquor jugs' " do
+      expect(algorithm.missing_letter("Pack my fox with five dozen liquor jugs")).to eq("b")
     end
   end
 
@@ -237,10 +263,13 @@ RSpec.describe TwoPointers do
   end
 
   describe "#largest_palindrome_product" do
-    it "should return 9009 " do
-      expect(algorithm.largest_palindrome_product).to eq(9009)
+    it "should return 906609 " do
+      expect(algorithm.largest_palindrome_product).to eq(906609)
     end
   end
 
 end
+
+algorithm = TwoPointers.new
+algorithm.merge_arrays([1, 5, 8], [6, 9])
 
