@@ -13,21 +13,14 @@ class BasicNumber
   end
 
   def fizzbuzz(input_number)
-
-    index = 1
-    input_number.times do
-      if index % 15 == 0
-        p 'FIZZBUZZ'
-      elsif index % 5 == 0
-        p 'BUZZ'
-      elsif index % 3 == 0
-        p 'FIZZ'
-      else
-        p index
-      end
-      index += 1
+    count = 1
+    while count <= input_number
+      output = ''
+      output += 'Fizz' if count % 3 == 0
+      output += 'Buzz' if count % 5 == 0
+      puts (output != '' ? output : count)
+      count += 1
     end
-
   end
 
   def leap_year(input_year)
@@ -116,6 +109,7 @@ class BasicNumber
     counter
   end
 end
+
 
 RSpec.describe BasicNumber do
 
