@@ -11,6 +11,13 @@ const mapDouble = (inputArray) => {
 }
 
 const arrayMax = (inputArray) => {
+  let max = inputArray[0]
+  for (let i = 1; i < inputArray.length; i++) {
+    if (inputArray[i] > max) {
+      max = inputArray[i]
+    }
+  }
+  return max
   //Return the greatest value from an array of numbers.
 }
 
@@ -31,4 +38,3 @@ const skipIt = (inputArray) => {
   // Output:
   // [2, 3, 1, 2, 2, 1, 5, 2, 2]
 }
-
