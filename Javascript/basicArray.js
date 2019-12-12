@@ -1,5 +1,10 @@
 const reduceSum = (inputArray) => {
   // Return the sum of all numbers in a given array.
+  let sum = 0
+  for (let i = 0; i < inputArray.length; i++) {
+    sum = sum + inputArray[i]
+  }
+  return sum
 }
 
 const selectLessThan100 = (inputArray) => {
