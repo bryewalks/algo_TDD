@@ -8,6 +8,13 @@ const reduceSum = (inputArray) => {
 }
 
 const selectLessThan100 = (inputArray) => {
+  let lessThan100 = []
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] < 100) {
+      lessThan100.push(inputArray[i])
+    }
+  }
+  return lessThan100
   //Given an array of numbers, return a new array that contains all numbers from the original array that are less than 100.
 }
 
