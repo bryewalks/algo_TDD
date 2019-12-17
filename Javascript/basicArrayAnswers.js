@@ -1,17 +1,37 @@
 const reduceSum = (inputArray) => {
-  // Return the sum of all numbers in a given array.
+  let sum = 0
+  for (let i = 0; i < inputArray.length; i++) {
+    sum = sum + inputArray[i]
+  }
+  return sum
 }
 
 const selectLessThan100 = (inputArray) => {
-  //Given an array of numbers, return a new array that contains all numbers from the original array that are less than 100.
+  let lessThan100 = []
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] < 100) {
+      lessThan100.push(inputArray[i])
+    }
+  }
+  return lessThan100
 }
 
 const mapDouble = (inputArray) => {
- //Given an array of numbers, return a new array whose values are the original array’s value doubled.
+ let doubledArray = []
+ for (let i = 0; i < inputArray.length; i++) {
+  doubledArray.push(inputArray[i] * 2)
+ }
+ return doubledArray
 }
 
 const arrayMax = (inputArray) => {
-  //Return the greatest value from an array of numbers.
+  let max = inputArray[0]
+  for (let i = 1; i < inputArray.length; i++) {
+    if (inputArray[i] > max) {
+      max = inputArray[i]
+    }
+  }
+  return max
 }
 
 const reduceProduct = (inputArray) => {
