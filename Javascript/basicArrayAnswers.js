@@ -35,7 +35,6 @@ const arrayMax = (inputArray) => {
 }
 
 const reduceProduct = (inputArray) => {
-  //Given an array of numbers, return the product of all the numbers.
   let product = 1
   for (let i = 0; i < inputArray.length; i++) {
     product = product * inputArray[i]
@@ -44,7 +43,11 @@ const reduceProduct = (inputArray) => {
 }
 
 const reverseArray = (inputArray) => {
-  //Given an array, return a new array that contains the original array’s values in reverse.
+  let reversedArray = []
+  for (let i = inputArray.length - 1; i >= 0; i--) {
+    reversedArray.push(inputArray[i])
+  }
+  return reversedArray
 }
 
 const skipIt = (inputArray) => {
@@ -56,4 +59,4 @@ const skipIt = (inputArray) => {
   // Output:
   // [2, 3, 1, 2, 2, 1, 5, 2, 2]
 }
-console.log(reduceProduct([1,2,3,4,5]))
+console.log(reverseArray([1,2,3,4,5]))
