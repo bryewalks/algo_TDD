@@ -3,17 +3,18 @@ require "rspec"
 class BasicHash
 
   def most_frequent_letter(input_string)
-
-    alphabet_hash = {}
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    letter_hash = {}
     max_letter = ''
     count = 0
+    input_string.each_char do |char|
+      letter_hash[char] ? letter_hash[char] += 1 : letter_hash[char] = 1
 
-    alphabet.chars.each { |letter| alphabet_hash[letter] = 0 }
-    input_string.chars.each { |input_letter| alphabet_hash[input_letter] += 1 if alphabet_hash[input_letter] }
-    alphabet_hash.each { |key,value| count = value and max_letter = key if value > count }
-    max_letter
-    
+      if letter_hash[char] > count
+        count = letter_hash[char]
+        max_letter = char
+      end
+    end
+    max_letter 
   end
 
   def etl_1(input_array, input_number)
