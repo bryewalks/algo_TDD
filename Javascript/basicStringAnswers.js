@@ -47,5 +47,3 @@ function hamming(inputString, inputString2) {
   // Given two strings of equal length, return the number of characters that are different between the two strings.
   
 }
-
-console.log(reverseWords("this is a test"))
