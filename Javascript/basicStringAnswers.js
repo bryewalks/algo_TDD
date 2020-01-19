@@ -30,8 +30,12 @@ function findDuplicateCharacter(inputString) {
 }
 
 function reverseWords(inputString) {
-  // Given a string of words, return a new string that contains the words in reverse order.
-  
+  let reverseArray = []
+  let wordArray = inputString.split(" ")
+  for (let i = wordArray.length - 1; i >= 0; i--) {
+    reverseArray.push(wordArray[i])
+  }
+  return reverseArray.join(" ")
 }
 
 function palindrome(inputString) {
@@ -43,3 +47,5 @@ function hamming(inputString, inputString2) {
   // Given two strings of equal length, return the number of characters that are different between the two strings.
   
 }
+
+console.log(reverseWords("this is a test"))
